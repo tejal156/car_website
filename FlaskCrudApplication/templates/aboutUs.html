@@ -1,0 +1,102 @@
+{%extends "components/layout.html" %} 
+{%block content%} 
+
+<style>
+  .box_contactUs {
+    padding: 20px 10px;
+    border: 2.5px solid black;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255, 0.9);
+    margin-top: 50px;
+    text-align: center;
+    width: 60vw;
+  }
+
+  .card_contactUs_box
+  {
+    width: 95%;
+    margin-top: 50px;
+  }
+
+  .card_contactUs{
+    margin: 0px 30px;
+    padding: 0px;
+    border: 2px solid black;
+    border-radius: 20px;
+  }
+
+  .card_contactUs img{
+    aspect-ratio: 5/6;
+    background-size:cover;
+    
+    border-start-start-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+</style>
+
+<body>
+  <!-- <header> -->
+
+  <div class="container box_contactUs">
+    <h1>About Us</h1>
+
+    <div class="container card_contactUs_box">
+      <div class="row">
+
+
+        <div class="card col-5 card_contactUs" style="width: 18rem;">
+          <img src="./static/car_images/used_images/campbell-3ZUsNJhi_Ik-unsplash1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Dnyaneshwari Dolas</h5>
+            <p class="card-text"><p>Contact No.-1111111111</p>
+              <p>EmailID-abc01@gmail.com</p>
+              </p>
+          </div>
+        </div>
+
+        <div class="card col-5 card_contactUs" style="width: 18rem;">
+          <img src="/static/car_images/used_images/professional_photo1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Tejal Kolhe</h5>
+            <p class="card-text"><p>Contact No.-4444444444</p>
+              <p>EmailID-jkl04@gmail.com</p>
+              </p>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <h1>Welcome to Car Canvas</h1>
+    <h2>
+      Experience the Thrill of Owning a Second-Hand Car
+    </h2> -->
+
+  <!-- </header> -->
+
+  <main>
+    <section>
+      <!-- <div>
+
+        <h2>Dnyaneshwari Dolas</h2>
+        <h3>Contact No.-1111111111</h3>
+        <h3>EmailID-abc01@gmail.com</h3>
+      </div> -->
+
+
+      <!-- <div>
+        <h2>Tejal Kolhe</h2>
+        <h3>Contact No.-4444444444</h3>
+        <h3>EmailID-jkl04@gmail.com</h3>
+      </div> -->
+    </section>
+  </main>
+
+</body>
+
+{% endblock %}

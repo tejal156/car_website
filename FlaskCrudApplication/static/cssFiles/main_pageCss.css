@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .col-md-4 {
+    padding: 20px;
+  }
+
+  #carouselExampleCaptions {
+    margin: 2px 0px 0px 0px;
+  }
+
+  body {
+    /**background: url("image\ i.jpg");**/
+
+    overflow-x: hidden;
+    /**background-size: 100vw 100vh;
+          background-repeat: no-repeat;**/
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+    line-height: 1.6;
+    background-color: white;
+  }
+
+  .container2 {
+    background: rgb(211, 214, 213);
+    padding: 20px 40px 20px;
+    width: 100vw;
+  }
+
+  .heading {
+    font-size: 120px;
+  }
+
+  .tagline {
+    font-size: 30px;
+  }
+
+
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+
+  }
+
+  section h1 {
+    font-size: 64px;
+
+  }
+
+  section p {
+    font-size: 24px;
+  }
+
+  #home {
+    background: url("new images/bg2.jpeg");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+
+  }
+
+
+
+
+
+ 
+
+  /* .left img {
+    width: 179px;
+          border: 1px;
+
+  } */
+
+  .right {
+    display: inline-block;
+    position: absolute;
+    right: 60px;
+    top: 15px;
+  }
+
+  .right2 {
+    display: inline-block;
+    position: absolute;
+    right: 3px;
+    top: 55px;
+  }
+
+  .button {
+    color: white;
+    background-color: black;
+    padding: 3px 10px;
+    font-size: 20px;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .button:hover {
+    background-color: rgba(255, 222, 6, 0.7);
+  }
+
+  .button2 {
+    color: white;
+    background-color: black;
+    padding: 3px 10px;
+    font-size: 20px;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .button2:hover {
+    background-color: rgba(255, 222, 6, 0.7);
+  }
+
+  .welcome_heading {
+    font-size: 40px;
+  }
+
+  .welcome_div {
+    /** top right bottom left **/
+    margin: 50px auto auto auto;
+  }
+
+  .left_image {
+    /** top right bottom left **/
+    margin: 90px auto auto 10px;
+    padding: 50px auto auto auto;
+
+  }
+
+  .right_content {
+    margin: 50px 10px auto auto;
+  }
+
+
+
+
+
+  <!-- .col-md-4
+  {
+    border-radius: 50px;
+  } -->
+
+  <!-- .card-img
+  {
+    border-radius: 50px;
+  } -->
+
+
+ 

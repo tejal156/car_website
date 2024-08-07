@@ -1,0 +1,219 @@
+
+{%extends "components/layout.html" %} 
+{%block content%} 
+  <style>
+
+      body 
+      {
+          background: url("./static/car_images/used_images/campbell-3ZUsNJhi_Ik-unsplash1.jpg");
+          background-attachment: fixed;
+          background-size: cover;
+          font-size: 130%;
+          font-family: 'Atkinson Hyperlegible', sans-serif;
+          font-family: 'Montserrat', sans-serif;
+      } 
+
+      form 
+      {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          width: 35%;
+          height: 70%;
+          color: black;
+          opacity: 0.85; 
+          /*          background-color: #f2f2f2;*/
+         
+          /* <!-- background: linear-gradient(#000e29,#00091b,#00050e,#000000); --> */
+          background: #ffffff;
+          padding: 20px;
+          box-sizing: border-box;
+          border-radius: 5px;
+          /* rgba:(0, 0, 0, 0.3) ; */
+          box-shadow: 0 0 10px;
+          display: block;         
+          justify-content: center;
+          text-align: center;
+      }
+
+      label 
+      {
+          display: inline-block;
+          text-align:center;
+      }
+
+    input, button 
+    {
+
+      margin: 10px;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      background-color:azure;
+      border: 1px solid #140f0f
+    }
+
+    button 
+    {
+      font-size: 90%; 
+      background-color: black;
+      color: white;
+      border:none;
+      height : 15% ;
+      width:50%; 
+    }
+
+    p#result 
+    {
+      margin: 20px;
+      font-size: 180%;
+    }
+
+    /* <!-- starting of navbar --> */
+    .container1
+     {
+        width: 100%;
+        height: 100%;
+        background: rgb(15, 15, 15);
+
+        
+    }
+
+    .navbar 
+    {
+      position: relative;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      width: 100%;
+      height: 60px;
+      /* background: rgba(28, 14, 45, 0.3); */
+      background:  rgb(20, 19, 20);
+      font-size: 60px;
+      font-weight: 900;
+      font-style: inherit;
+      pad: 20px;
+    }
+
+    .left {
+      display: inline-block;
+
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      border: 1px;
+      border-color: azure;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      width: 100%;
+      justify-content: left;
+    }
+
+    .navbar ul li {
+      margin: 0 1rem;
+      padding: 0rem;
+      font-size: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: aliceblue
+    }
+
+    .navbar ul li a:hover {
+      color: gray;
+      text-decoration: underline;
+    }
+
+    .left img {
+      width: 179px;
+            border: 1px;
+
+    }
+    /* <!-- ending of navbar --> */
+
+
+
+    /* <!-- starting of footer  --> */
+    .col-md-4 {
+      padding: 20px;
+    }
+
+    .container
+    {
+      position: absolute;
+      top :630px;
+      left: 0 ;
+      width:100%;
+      max-width: 1398px;
+      
+    }
+
+    
+
+
+
+    /* <!-- ending of footer  --> */
+
+
+    
+  </style>
+
+<body>
+
+     
+   
+ 
+  
+  
+  <form>
+    <label for="principal">Loan amount:</label>
+    <br>
+    <input type="number" id="principal" name="principal" required>
+
+    <br>
+
+    <label for="rate">Interest rate (in %):</label>
+    <br>
+    <input type="number" id="rate" name="rate" required>
+
+    <br>
+
+    <label for="term">Loan term (in months):</label>
+    <br>
+    <input type="number" id="term" name="term" required>
+
+    <br>
+
+    <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+
+    <p id="result"></p>
+  </form>
+
+
+  
+
+
+  <script>
+
+    function calculateEMI() 
+    {
+      var principal = parseFloat(document.getElementById("principal").value);
+      var rate = parseFloat(document.getElementById("rate").value);
+      var term = parseInt(document.getElementById("term").value);
+
+      var monthly_rate = rate / 1200;
+      var emi = principal * monthly_rate * Math.pow(1 + monthly_rate, term) / (Math.pow(1 + monthly_rate, term) - 1);
+
+      document.getElementById("result").innerHTML = "EMI: " + emi.toFixed(2);
+    }
+  </script>
+</body>
+
+{% endblock %}

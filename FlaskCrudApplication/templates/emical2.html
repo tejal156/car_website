@@ -1,0 +1,136 @@
+
+{%extends "components/layout.html" %} 
+{%block content%} 
+
+    
+  <style>
+
+
+    /* <!-- ending of footer  --> */
+    body
+    {
+        background-image: url("/static/car_images/used_images/campbell-3ZUsNJhi_Ik-unsplash1.jpg");
+        margin: 0px;
+        background-size: cover; 
+        padding: 0px;
+    }
+
+    .form_emiCal_outer
+    {
+        max-width: 98vw;
+    }
+
+    .form_emiCal
+    {
+        background-color: rgba(255, 255, 255, 0.9) ;
+        border:2px solid black;
+        border-radius: 30px;
+        margin-top: 50px;
+        text-align: center;
+        max-width: 40vw;
+        margin-bottom: 40px;
+        padding: 30px 120px;
+        height: 600px;
+
+    }
+
+    .form-label{
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .form-control
+    {
+        
+        border: 1px solid black;
+    }
+    #result
+    {
+        margin-top: 25px;
+        font-size: 30px;
+    }
+
+    
+  </style>
+
+  
+<body>
+  
+
+<form class="form_emiCal_outer needs-validation" novalidate >
+
+<div class="container form_emiCal" >
+    <label for="principal" class="form-label" style="margin-top: 20px;" >Loan amount:</label>
+    <br>
+    <input type="number" id="principal" name="principal" class="form-control"  required>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Plz enter valid input!</div>
+    <br>
+
+    <label for="rate" class="form-label">Interest rate (in %):</label>
+    <br>
+    <input type="number" id="rate" name="rate" class="form-control"  required>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Plz enter valid input!</div>
+    <br>
+
+    <label for="term" class="form-label">Loan term (in months):</label>
+    <br>
+    <input type="number" id="term" name="term" class="form-control"   required>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Plz enter valid input!</div>
+    <br>
+
+    <button type="submit" onclick="calculateEMI()" class="btn btn-dark btn-lg">Calculate EMI</button>
+      <br>
+    <p id="result"></p>
+</div>
+  </form>
+
+
+</body>
+
+
+  <script>
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+
+        event.preventDefault()
+        if (!form.checkValidity()) {
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+
+    function calculateEMI() 
+    {
+      var principal = parseFloat(document.getElementById("principal").value);
+      var rate = parseFloat(document.getElementById("rate").value);
+      var term = parseInt(document.getElementById("term").value);
+
+      if( !(isNaN(principal) || isNaN(rate) || isNaN(term)))
+      {
+        var monthly_rate = rate / 1200;
+        var emi = principal * monthly_rate * Math.pow(1 + monthly_rate, term) / (Math.pow(1 + monthly_rate, term) - 1);
+        document.getElementById("result").innerHTML = "EMI: " + emi.toFixed(2);
+      }
+
+    }
+
+
+  </script>
+
+
+{% endblock %}

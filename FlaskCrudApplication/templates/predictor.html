@@ -1,0 +1,190 @@
+{%extends "components/layout.html" %} 
+{%block content%} 
+
+
+<style>
+
+    .form_prediction
+    {
+        width: 900px;
+        font-size: 20px;
+        border:2px solid black;
+        border-radius: 30px;
+        margin-top: 20px;
+        padding: 30px;
+
+        background-color: rgba(255, 255, 255, 0.9) ;
+    }
+
+    .form_ele
+    {
+        padding: 17px 0px ;
+        text-align: right;
+    }
+
+    body
+    {
+        background-image: url("/static/car_images/used_images/campbell-3ZUsNJhi_Ik-unsplash1.jpg");
+        margin: 0px;
+        background-size: cover; 
+        padding: 0px;
+    }
+
+    .form-select
+    {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="form1_body">
+    <div class="card">
+        <!-- <div class="card-header">
+            <h1>Welcome to Car Price Predictor</h1> -->
+
+        </div>
+
+        <div class="container form_prediction">
+
+            <form method="post" class="row g-3 needs-validation" novalidate>
+
+                <div class="row form_ele" style="margin-top: 25px;">
+                    <!-- select the company : <input type="text" name="company" id="company" placeholder="enter company name"> -->
+                    <label for="company" class="form-label col-4">Select the Company : </label>
+                    <select name="company" class="form-select col-8" id="company" required="1" onchange="load_car_models(this.id , 'model' )">
+                        <!-- {% for company in companies %} -->
+                        <option value="{{ company }}">company</option>
+                        <!-- {% endfor %} -->
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please choose a company name!
+                      </div>
+
+                </div>
+                
+                
+                <div class="row form_ele">
+                    <!-- select the model : <input type="text" name="car_model" id="car_model" placeholder="enter model name"> -->
+                    <label class="form-label col-4" for="model">Select the Model : </label>
+                    <select name="model" id="model" required="1" class="form-select col-8">
+                        <!-- {% for model in car_model %} -->
+                        <option value="{{ model }}"> model </option>
+                        <!-- {% endfor %} -->
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please choose a model name!
+                      </div>
+                </div>
+                
+
+
+                <div class="row form_ele">
+                    <!-- select the purchase year : <input type="text" name="year" id="year" placeholder="enter year of purchase"> -->
+                    <label class="form-label col-4">Select the Purchase Year: </label>
+                    <select name="year" id="year" required="1" class="form-select col-8">
+                        <!-- {% for year1 in year %} -->
+                        <option value="{{ year1 }}"> year1 </option>
+                        <!-- {% endfor %} -->
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please choose a year!
+                      </div>
+                </div>
+                
+
+
+                <div class="row form_ele">
+                    <!-- select the feul type : <input type="number" name="feul_type" id="feul_type" placeholder="enter feul type"> -->
+                    <label class="form-label col-4">Select the Fuel Yype : </label>
+                    <select name="feul_type" id="feul_type" required="1" class="form-select col-8">
+                        <!-- {% for feul_type in feul_type1 %} -->
+                        <option value="{{ feul_type }}">feul_type </option>
+                        <!-- {% endfor %} -->
+                    </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                          <div class="invalid-feedback">
+                            Please choose a feul type!
+                          </div>
+                    </select>
+
+                </div>
+                
+
+
+                <div class="row form_ele">
+                <label for="" class="form-label col-7">Enter the Kilometer that Car has Travelled :</label>
+                     
+                    <input type="number" name="kilo_driven" class="form-control col-5"
+                        id="kilo_driven" placeholder="enter kms driven" value="0" style="border: 1px solid black;">
+
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                          <div class="invalid-feedback">
+                            Please choose a distance
+                          </div>
+                </div>
+
+
+
+                <div class="form_ele" style="text-align: left;">
+                    <button onclick="send_data()" class="btn btn-dark btn-lg offset-5" >Predict Price</button>
+
+                </div>
+
+
+                <div class="mb-3">
+                    <div>
+                        <h3>
+                            <span id="prediction">
+
+                            </span>
+                        </h3>
+                    </div>
+
+                </div>
+                <br>
+
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    (() => {
+        'use strict'
+      
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+      
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+      
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
+</script>
+
+{% endblock %}
